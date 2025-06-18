@@ -3,32 +3,7 @@ import TableSection from "./TableSection";
 import DashboardHeader from "./DashboardHeader";
 import styled from "styled-components";
 
-const Container = styled.div`
-    padding: 2rem;
-    display: flex;
-    flex-direction: column; 
-    gap: 2rem;
 
-      @media (max-width: 768px) {
-    padding: 1rem;
-            min-width: 615px;
-  }
-`;
-
-const Containersecond = styled.div`
-    padding: 2rem;
-    display: flex;
-    flex-direction: row; 
-    gap: 2rem;
-      flex-wrap: wrap;
-
-
-      @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 1rem;
-            min-width: 600px;
-  }
-`;
 
 export default function Dashboard({ profile, data }) {
     const stats = {
@@ -39,6 +14,9 @@ export default function Dashboard({ profile, data }) {
         ),
         avgTime: Math.round(
             data.reduce((sum, d) => sum + parseInt(d.time), 0) / data.length
+        ),
+        avgResponseTime: Math.round(
+            data.reduce((sum, d) => sum + d.responseTime, 0) / data.length
         ),
         today: data.length,
     };
@@ -57,3 +35,29 @@ export default function Dashboard({ profile, data }) {
         </>
     );
 }
+
+
+
+const Container = styled.div`
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+    }
+`;
+
+const Containersecond = styled.div`
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 1rem;
+    }
+`;

@@ -1,6 +1,50 @@
 import styled from "styled-components";
 import { useState } from "react";
 
+
+
+export default function Login({ onLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = () => {
+    if (!email || !password) {
+      setError("Please fill in both fields.");
+      return;
+    }
+    setError("");
+    onLogin();
+  };
+
+  return (
+    <Wrapper>
+      <Card>
+        <Logo>DB</Logo>
+        <Title>Welcome Back</Title>
+        <Subtitle>Sign in to your Devbox Developer Portal</Subtitle>
+        <Input
+          type="email"
+          placeholder="Username"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          placeholder="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {error && <ErrorText>{error}</ErrorText>}
+        <Button onClick={handleSubmit}>Sign In</Button>
+        <DemoText>Demo credentials: any email/password combination works</DemoText>
+      </Card>
+    </Wrapper>
+  );
+}
+
+
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -84,43 +128,3 @@ const DemoText = styled.p`
   font-size: 0.75rem;
   margin-top: 1.5rem;
 `;
-
-export default function Login({ onLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const handleSubmit = () => {
-    if (!email || !password) {
-      setError("Please fill in both fields.");
-      return;
-    }
-    setError("");
-    onLogin();
-  };
-
-  return (
-    <Wrapper>
-      <Card>
-        <Logo>DB</Logo>
-        <Title>Welcome Back</Title>
-        <Subtitle>Sign in to your Devbox Developer Portal</Subtitle>
-        <Input
-          type="email"
-          placeholder="developer@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {error && <ErrorText>{error}</ErrorText>}
-        <Button onClick={handleSubmit}>Sign In</Button>
-        <DemoText>Demo credentials: any email/password combination works</DemoText>
-      </Card>
-    </Wrapper>
-  );
-}

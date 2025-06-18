@@ -1,16 +1,55 @@
 import styled from "styled-components";
 
+
+
+export default function ProfileCard({ profile }) {
+  return (
+    <Card>
+      <h3>Profile Information</h3>
+
+      <ProfileRow>
+        <Avatar src={profile.avatar || "https://i.pravatar.cc/100"} alt="User" />
+        <NameRole>
+          <Name>{profile.name}</Name>
+          <Role>{profile.role}</Role>
+        </NameRole>
+      </ProfileRow>
+
+      <Label>Email</Label>
+      <Value>{profile.email}</Value>
+
+      <Label>Organization</Label>
+      <Value>{profile.org}</Value>
+
+      <Label>Member Since</Label>
+      <Value>{profile.joined}</Value>
+
+      <Label>API Key</Label>
+      <ApiKeyWrapper>
+        <ApiKey>{profile.apiKey}</ApiKey>
+        <StatusBadge>Active</StatusBadge>
+      </ApiKeyWrapper>
+    </Card>
+  );
+}
+
+
+
 const Card = styled.div`
   background: ${(props) => props.theme.colors.cardBg};
   padding: 1.5rem;
   border-radius: 12px;
   color: white;
   box-shadow: 0 0 0 1px #e5e7eb;
-  max-width: 400px;
-  width: 100%;
+  /* max-width: 400px; */
+  max-width: 100%;
+
+  /* width: 100%; */
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    /* padding: 1rem; */
+        padding: 0.6rem;
+
     max-width: 100%;
   }
 `;
@@ -86,34 +125,3 @@ const StatusBadge = styled.span`
   padding: 0.2rem 0.5rem;
   border-radius: 12px;
 `;
-
-export default function ProfileCard({ profile }) {
-  return (
-    <Card>
-      <h3>Profile Information</h3>
-
-      <ProfileRow>
-        <Avatar src={profile.avatar || "https://i.pravatar.cc/100"} alt="User" />
-        <NameRole>
-          <Name>{profile.name}</Name>
-          <Role>{profile.role}</Role>
-        </NameRole>
-      </ProfileRow>
-
-      <Label>Email</Label>
-      <Value>{profile.email}</Value>
-
-      <Label>Organization</Label>
-      <Value>{profile.org}</Value>
-
-      <Label>Member Since</Label>
-      <Value>{profile.joined}</Value>
-
-      <Label>API Key</Label>
-      <ApiKeyWrapper>
-        <ApiKey>{profile.apiKey}</ApiKey>
-        <StatusBadge>Active</StatusBadge>
-      </ApiKeyWrapper>
-    </Card>
-  );
-}
