@@ -54,10 +54,10 @@ const Containersecond = styled.div`
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 
     @media (max-width: 768px) {
         flex-direction: column;
-        padding: 1rem;
+        /* padding: 1rem; */
     }
 `;

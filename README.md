@@ -15,6 +15,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 git clone https://github.com/your-username/your-repo.git
+
+
 cd your-repo
-npm install      # or yarn
-npm start        # or yarn start
+npm install        # or yarn
+npm run dev        # or yarn run dev

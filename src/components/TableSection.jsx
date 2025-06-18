@@ -112,15 +112,19 @@ const Container = styled.div`
   padding: 1rem;
   flex: 2;
   overflow-x: auto;
-    width: 100%;
+    /* width: 100%; */
+
+    
+
 
     
   @media (max-width: 768px) {
-    /* padding: 1rem; */
-        padding: 0.6rem;
+        padding: 1rem;
 
 
   }
+
+  
 
 `;
 

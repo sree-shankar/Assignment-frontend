@@ -1,12 +1,12 @@
 import styled from "styled-components";
-
+import { FiLogOut } from "react-icons/fi";
 
 
 export default function Navbar({ onLogout }) {
   return (
     <Nav>
       <Logo>Devbox Developer Portal</Logo>
-      <LogoutButton onClick={onLogout}>Logout</LogoutButton>
+      <LogoutButton onClick={onLogout}> <FiLogOut style={{ marginRight: "0.5rem" }} />Logout</LogoutButton>
     </Nav>
   );
 }
@@ -22,28 +22,27 @@ const Nav = styled.nav`
   flex-wrap: wrap;
 
   @media (max-width: 768px) {
-    /* flex-direction: column; */
     align-items: flex-start;
     padding: 1rem;
-            /* min-width: 625px; */
+          
             
   }
 `;
 
 const Logo = styled.div`
-  font-size: 1.5rem;
   font-weight: bold;
   color: white;
-  /* margin-bottom: 0.5rem; */
+
 `;
 
 const LogoutButton = styled.button`
   background: ${(props) => props.theme.colors.primary};
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+
   border-radius: 8px;
   cursor: pointer;
+  
 
   @media (max-width: 768px) {
     align-self: flex-end;

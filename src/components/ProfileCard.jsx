@@ -48,7 +48,7 @@ const Card = styled.div`
 
   @media (max-width: 768px) {
     /* padding: 1rem; */
-        padding: 0.6rem;
+        padding: 1rem;
 
     max-width: 100%;
   }
